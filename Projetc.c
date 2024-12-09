@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>  // malloc
+#include <stdlib.h>
 #include <string.h>
 
 
@@ -65,7 +65,7 @@ void lirereservation() {
     f=fopen("reservations.txt","r");
     char str[100];
     while (fgets(str,100,f)!=NULL) {
-        sscanf(str,"%d %d %f",&first,&second,&third);
+        sscanf(str,"%d %d %f",&first,&second,&third);  //fonction  qui extrait les données de chaine de caractere séparé par espace
         strcpy(Chambre[second-1].statut,"non disponible");
     }
     fclose(f);
@@ -130,7 +130,7 @@ void ajouterreservation() {
     int idc,numch,nmbnuits;
     printf("Inserer votre Id de client :\n");
     scanf("%d",&idc);
-    printf("Inserer le nombre de chambre à réserver:\n");
+    printf("Inserer le nombre de chambre à reserver:\n");
     scanf("%d",&numch);
     printf("Inserer le nombre de nuits:\n");
     scanf("%d",&nmbnuits);
@@ -138,7 +138,7 @@ void ajouterreservation() {
         if (numch == Chambre[i].numch && strcmp(Chambre[i].statut,"disponible")==0) {
             strcpy(Chambre[i].statut, "non disponible");
             float prix = Chambre[i].tarif*nmbnuits;
-            printf("Reservation réussie:\n");
+            printf("Reservation reussie:\n");
             printf("le prix total est : %.2f\n",prix);
             res = fopen("reservations.txt","a");
             fprintf(res,"%d %d %.2f \n",idc,numch,prix);
@@ -206,7 +206,7 @@ void enqueue(queue* q, int idclient, int numChambre, const char* description) {
     strcpy(nouvelledemande->description, description);
     q->contents[q->rear]=nouvelledemande;
     q->rear=(q->rear+1)%MAX_QUEUE_SIZE;
-    printf("Demande de maintenance ajoutée avec succès!\n");
+    printf("Demande de maintenance ajoutée avec succes!\n");
 
 }
 
@@ -222,7 +222,7 @@ void ajoutermaintenance(queue* q) {
     scanf("%d", &numChambre);
 
     printf("entrez la description de la maintenance :\n");
-    getchar();  // Pour consommer le caractère de nouvelle ligne restant après scanf   taw nthabtou fiha lazma getchar wela le !!!
+    getchar();  // Pour consommer le caractère de nouvelle ligne restant après scanf
     fgets(description, sizeof(description), stdin);
     enqueue(q, idClient, numChambre, description);
 }
@@ -311,7 +311,7 @@ int main(){
                 printf("Option Invalide\n");
                 printf("appuyer sur n'importe quelle touche pour revenir au menu ....\n");
                 getchar();
-                getchar();   // getchar ynahi \n mt3 scanf
+                getchar();
                 break;
         }
 
