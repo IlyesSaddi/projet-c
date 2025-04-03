@@ -4,7 +4,7 @@
 
 
 
-#define Max 10
+#define Max 11
 
 // create structure chambre
 typedef struct {
